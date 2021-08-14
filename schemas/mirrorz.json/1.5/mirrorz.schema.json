@@ -13,170 +13,17 @@
         "version": {
             "type": "number",
             "description": "The version of MirrorZ data contract",
-            "minimum": 1.4,
+            "minimum": 1.5,
             "maximum": 1.5
         },
         "site": {
-            "type": "object",
-            "description": "Basic information of a mirror site",
-            "properties": {
-                "url": {
-                    "type": "string",
-                    "description": "Base URL to this site",
-                    "pattern": "^https?\\:\\/\\/([a-z0-9\\-]+\\.)+[a-z0-9]+(\\:\\d+)?(\\/.+)*$"
-                },
-                "logo": {
-                    "type": "string",
-                    "description": "URL to the logo of this this site for light mode"
-                },
-                "logo_darkmode": {
-                    "type": "string",
-                    "description": "URL to the logo of this this site for dark mode"
-                },
-                "abbr": {
-                    "type": "string",
-                    "description": "A short name of this site"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A full name of this site"
-                },
-                "homepage": {
-                    "type": "string",
-                    "description": "URL to the homepage of this site or the organization maintaining this site"
-                },
-                "issue": {
-                    "type": "string",
-                    "description": "Instruction of filing issues regarding this site"
-                },
-                "request": {
-                    "type": "string",
-                    "description": "Instruction of filing mirror requests for this site"
-                },
-                "email": {
-                    "type": "string",
-                    "description": "Email address to the maintainer(s) of this site"
-                },
-                "group": {
-                    "type": "string",
-                    "description": "IM group of this site"
-                },
-                "disk": {
-                    "type": "string",
-                    "description": "Disk quota of this site"
-                },
-                "note": {
-                    "type": "string",
-                    "description": "Additional information regarding this site"
-                },
-                "big": {
-                    "type": "string",
-                    "description": "URL to a big file on this site for speed testing"
-                }
-            },
-            "required": [
-                "url",
-                "abbr"
-            ]
+            "$ref": "site.schema.json"
         },
         "info": {
-            "type": "array",
-            "description": "Services provided by this site for category view",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "category": {
-                        "description": "Category of this service",
-                        "enum": [
-                            "os",
-                            "app",
-                            "font"
-                        ]
-                    },
-                    "distro": {
-                        "type": "string",
-                        "description": "Name of this service"
-                    },
-                    "urls": {
-                        "type": "array",
-                        "description": "Items of this service",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "description": "Name of this number"
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "description": "URL to this item"
-                                }
-                            },
-                            "required": [
-                                "name",
-                                "url"
-                            ]
-                        }
-                    }
-                },
-                "required": [
-                    "category",
-                    "distro",
-                    "urls"
-                ]
-            }
+            "$ref": "info.schema.json"
         },
         "mirrors": {
-            "type": "array",
-            "description": "Syncing details of services provided by this site",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "cname": {
-                        "type": "string",
-                        "description": "Name of this service"
-                    },
-                    "desc": {
-                        "type": "string",
-                        "description": "Description of this service"
-                    },
-                    "url": {
-                        "description": "URL to this service",
-                        "oneOf": [
-                            {
-                                "type": "string",
-                                "pattern": "^\\/"
-                            },
-                            {
-                                "type": "string",
-                                "pattern": "^https?\\:\\/\\/([a-z0-9\\-]+\\.)+[a-z0-9]+(\\:\\d+)?\\/"
-                            }
-                        ]
-                    },
-                    "status": {
-                        "type": "string",
-                        "description": "Syncing status of this service",
-                        "pattern": "^(([SYFP]\\d*)|[CRU])([XNO]\\d+)*$"
-                    },
-                    "help": {
-                        "type": "string",
-                        "description": "URL to the documentation of this service"
-                    },
-                    "upstream": {
-                        "type": "string",
-                        "description": "Upstream of this service"
-                    },
-                    "size": {
-                        "type": "string",
-                        "description": "Space used by this service"
-                    }
-                },
-                "required": [
-                    "cname",
-                    "url",
-                    "status"
-                ]
-            }
+            "$ref": "mirrors.schema.json"
         }
     }
 }

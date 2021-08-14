@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.mirrorz.org/mirrorz.json/1.5/mirrors.schema.json",
+    "title": "Syncing details of services provided by this site",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "cname": {
+                "type": "string",
+                "description": "Name of this service"
+            },
+            "desc": {
+                "type": "string",
+                "description": "Description of this service"
+            },
+            "url": {
+                "description": "URL to this service",
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "pattern": "^\\/"
+                    },
+                    {
+                        "type": "string",
+                        "pattern": "^https?\\:\\/\\/([a-z0-9\\-]+\\.)+[a-z0-9]+(\\:\\d+)?\\/"
+                    }
+                ]
+            },
+            "status": {
+                "type": "string",
+                "description": "Syncing status of this service",
+                "pattern": "^(([SYFP]\\d*)|[CRU])([XNO]\\d+)*$"
+            },
+            "help": {
+                "type": "string",
+                "description": "URL to the documentation of this service"
+            },
+            "upstream": {
+                "type": "string",
+                "description": "Upstream of this service"
+            },
+            "size": {
+                "type": "string",
+                "description": "Space used by this service"
+            }
+        },
+        "required": [
+            "cname",
+            "url",
+            "status"
+        ]
+    }
+}

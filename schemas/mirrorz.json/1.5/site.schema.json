@@ -1,0 +1,65 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.mirrorz.org/mirrorz.json/1.5/site.schema.json",
+    "title": "Basic information of a mirror site",
+    "type": "object",
+    "properties": {
+        "url": {
+            "type": "string",
+            "description": "Base URL to this site",
+            "pattern": "^https?\\:\\/\\/([a-z0-9\\-]+\\.)+[a-z0-9]+(\\:\\d+)?(\\/.+)*$"
+        },
+        "logo": {
+            "type": "string",
+            "description": "URL to the logo of this this site for light mode"
+        },
+        "logo_darkmode": {
+            "type": "string",
+            "description": "URL to the logo of this this site for dark mode"
+        },
+        "abbr": {
+            "type": "string",
+            "description": "A short name of this site"
+        },
+        "name": {
+            "type": "string",
+            "description": "A full name of this site"
+        },
+        "homepage": {
+            "type": "string",
+            "description": "URL to the homepage of this site or the organization maintaining this site"
+        },
+        "issue": {
+            "type": "string",
+            "description": "Instruction of filing issues regarding this site"
+        },
+        "request": {
+            "type": "string",
+            "description": "Instruction of filing mirror requests for this site"
+        },
+        "email": {
+            "type": "string",
+            "description": "Email address to the maintainer(s) of this site"
+        },
+        "group": {
+            "type": "string",
+            "description": "IM group of this site"
+        },
+        "disk": {
+            "type": "string",
+            "description": "Disk quota of this site"
+        },
+        "note": {
+            "type": "string",
+            "description": "Additional information regarding this site"
+        },
+        "big": {
+            "type": "string",
+            "description": "URL to a big file on this site for speed testing"
+        }
+    },
+    "required": [
+        "url",
+        "abbr"
+    ]
+}
