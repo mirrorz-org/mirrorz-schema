@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.mirrorz.org/mirrorz.json/1.5/mirrorz.schema.json",
+    "title": "Data contract for describing the services and data of a mirror site between MirrorZ and mirror sites",
+    "type": "object",
+    "required": [
+        "site",
+        "info",
+        "mirrors"
+    ],
+    "properties": {
+        "version": {
+            "type": "number",
+            "description": "The version of MirrorZ data contract",
+            "minimum": 1.5,
+            "maximum": 1.5
+        },
+        "site": {
+            "$ref": "site.schema.json"
+        },
+        "info": {
+            "$ref": "info.schema.json"
+        },
+        "mirrors": {
+            "$ref": "mirrors.schema.json"
+        }
+    }
+}
