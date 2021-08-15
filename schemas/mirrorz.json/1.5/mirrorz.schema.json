@@ -4,7 +4,6 @@
     "title": "Data contract for describing the services and data of a mirror site between MirrorZ and mirror sites",
     "type": "object",
     "required": [
-        "version",
         "site",
         "info",
         "mirrors"
