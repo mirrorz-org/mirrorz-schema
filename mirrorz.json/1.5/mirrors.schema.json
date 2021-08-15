@@ -1,0 +1,58 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.mirrorz.org/mirrorz.json/1.5/mirrors.schema.json",
+    "title": "Syncing details of services provided by this site",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "cname": {
+                "type": "string",
+                "description": "Name of this service"
+            },
+            "desc": {
+                "type": "string",
+                "description": "Description of this service"
+            },
+            "url": {
+                "description": "URL to this service",
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "pattern": "^\\/"
+                    },
+                    {
+                        "type": "string",
+                        "pattern": "^https?\\:\\/\\/([a-z0-9\\-]+\\.)+[a-z0-9]+(\\:\\d+)?"
+                    },
+                    {
+                        "type": "string",
+                        "pattern": "^https?\\:\\/\\/\\[((([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])))\\](\\:\\d+)?"
+                    }
+                ]
+            },
+            "status": {
+                "type": "string",
+                "description": "Syncing status of this service",
+                "pattern": "^(([SYFP]\\d*)|[CRU])([XNO]\\d+)*$"
+            },
+            "help": {
+                "type": "string",
+                "description": "URL to the documentation of this service"
+            },
+            "upstream": {
+                "type": "string",
+                "description": "Upstream of this service"
+            },
+            "size": {
+                "type": "string",
+                "description": "Space used by this service"
+            }
+        },
+        "required": [
+            "cname",
+            "url",
+            "status"
+        ]
+    }
+}

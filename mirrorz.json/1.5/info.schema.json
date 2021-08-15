@@ -1,0 +1,49 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.mirrorz.org/mirrorz.json/1.5/info.schema.json",
+    "title": "Services provided by this site for category view",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "category": {
+                "description": "Category of this service",
+                "enum": [
+                    "os",
+                    "app",
+                    "font"
+                ]
+            },
+            "distro": {
+                "type": "string",
+                "description": "Name of this service"
+            },
+            "urls": {
+                "type": "array",
+                "description": "Items of this service",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "Name of this number"
+                        },
+                        "url": {
+                            "type": "string",
+                            "description": "URL to this item"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "url"
+                    ]
+                }
+            }
+        },
+        "required": [
+            "category",
+            "distro",
+            "urls"
+        ]
+    }
+}
